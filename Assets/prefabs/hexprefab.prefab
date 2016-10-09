@@ -21,6 +21,7 @@ GameObject:
   - 224: {fileID: 224000010638044602}
   - 222: {fileID: 222000011085569442}
   - 114: {fileID: 114000013280363898}
+  - 114: {fileID: 114000014281761186}
   m_Layer: 5
   m_Name: hexprefab
   m_TagString: Untagged
@@ -55,6 +56,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000014281761186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010161640654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98acf54e6a7dd462ba6b94b12d744d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hexHeightMultiplier: 1
+  animateSeconds: 1
+  baseHeight: 250
 --- !u!222 &222000011085569442
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -74,8 +89,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: -125}
   m_SizeDelta: {x: 250, y: 250}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
