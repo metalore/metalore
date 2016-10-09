@@ -12,20 +12,25 @@ public class HexTile : MonoBehaviour {
 	float animateFrame = -1;
 
 	void Start () {
-		UpdateHexHeight ();
+		AnimateHexHeight ();
 	}
 	
 	void Update () {
 		
 	}
 
-	public void UpdateHexHeight (){
+	public void AnimateHexHeight (){
+
+		// If the multiplier height is less than the minimum, remove it.
+
+		if (hexHeightMultiplier < 1){
+			Destroy(this.gameObject);
+		}
 
 		//if the initial -1 value is set, set the starting number of frames
 
-		if (animateFrame == -1){
+		if (animateFrame == -1)
 			animateFrame = animateSeconds * animateFPS;
-		}
 
 		//Make the tile rise or fall to the hexHeight which is a multiple of the baseheight.
 
@@ -46,7 +51,7 @@ public class HexTile : MonoBehaviour {
 			animateFrame--;
 
 			//call this funciton again after a delay
-			Invoke ("UpdateHexHeight", invokeDelay);
+			Invoke ("AnimateHexHeight", invokeDelay);
 		} else {
 			// Set the height to its exact final value
 			Vector2 sizeVector = new Vector2 (imageRect.width, finalHeight);

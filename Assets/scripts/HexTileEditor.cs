@@ -16,8 +16,8 @@ public class HexTileEditor : Editor
 		HexTile hexTile = (HexTile)target;
 
 		if (Application.isPlaying) {
-			if (GUILayout.Button ("Update Hex Height")) {
-				hexTile.UpdateHexHeight ();
+			if (GUILayout.Button ("Animate Hex Height")) {
+				hexTile.AnimateHexHeight ();
 			}
 		}
 
