@@ -29,7 +29,7 @@ public class GenerateMap : MonoBehaviour {
 			for (int j = dia - 1; j >= 0; --j) {
 				if (i + j >= radius && i + j <= 3 * radius) {
 					//var elevation = Mathf.Floor (Random.Range (0, elevationRange)) * elevationStep;
-					var elevation = Mathf.Min (Mathf.Min (i, dia - i), Mathf.Min (j, dia - j));
+					var elevation = Mathf.Min (Mathf.Min (i, dia - i - 1), Mathf.Min (j, dia - j - 1));
 
 					float x = offsetX + i * deltaX + j * (deltaX / 2);
 					float y = offsetY + (dia - j - 1) * deltaY + elevation * elevationScale;
