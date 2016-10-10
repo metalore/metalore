@@ -195,5 +195,5 @@ MonoBehaviour:
   offsetY: 0
   deltaX: 1.93
   deltaY: 1.349
-  elevationScale: 0.05
+  elevationScale: 0.2
   elevationRange: 10

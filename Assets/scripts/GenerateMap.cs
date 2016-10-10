@@ -28,10 +28,11 @@ public class GenerateMap : MonoBehaviour {
 		for (int i = 0; i < dia; ++i) {
 			for (int j = dia - 1; j >= 0; --j) {
 				if (i + j >= radius && i + j <= 3 * radius) {
-					var elevation = Mathf.Floor (Random.Range (0, elevationRange)) * elevationStep;
+					//var elevation = Mathf.Floor (Random.Range (0, elevationRange)) * elevationStep;
+					var elevation = Mathf.Min (Mathf.Min (i, dia - i), Mathf.Min (j, dia - j));
 
 					float x = offsetX + i * deltaX + j * (deltaX / 2);
-					float y = offsetY + (dia - j - 1) * deltaY + elevation;
+					float y = offsetY + (dia - j - 1) * deltaY + elevation * elevationScale;
 					Instantiate (tile, new Vector3 (x, y, 0), Quaternion.identity);					
 				}
 			}
