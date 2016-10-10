@@ -4,9 +4,10 @@ using System.Collections;
 public class GenerateMap : MonoBehaviour {
 
 	public GameObject tile;
+	GameObject canvas;
 
 	[Header("Map size")]
-	public int radius = 5;
+	public int radius = 6;
 	//public float sizeX = 1.93f;
 	//public float sizeY = 1.349f;
 
@@ -23,7 +24,14 @@ public class GenerateMap : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		int dia = 2 * radius + 1;
-		float elevationStep = elevationScale * deltaY;
+		//float elevationStep = elevationScale * deltaY;
+
+		//Add a Canvas
+		canvas = new GameObject ("HexCanvas");
+		canvas.AddComponent<Canvas> ();
+		Canvas canvasComponent = canvas.GetComponent<Canvas> ();
+		canvasComponent.renderMode = RenderMode.ScreenSpaceCamera;
+		canvasComponent.worldCamera = Camera.main;
 
 		for (int i = 0; i < dia; ++i) {
 			for (int j = dia - 1; j >= 0; --j) {
@@ -33,7 +41,10 @@ public class GenerateMap : MonoBehaviour {
 
 					float x = offsetX + i * deltaX + j * (deltaX / 2);
 					float y = offsetY + (dia - j - 1) * deltaY + elevation * elevationScale;
-					Instantiate (tile, new Vector3 (x, y, 0), Quaternion.identity);					
+					GameObject hex = (GameObject) Instantiate (tile, new Vector3 (x, y, 0), Quaternion.identity);
+					hex.transform.SetParent (canvas.transform);
+					hex.transform.localScale = new Vector3(0.32f, 0.32f, 0.32f);
+					
 				}
 			}
 		}
