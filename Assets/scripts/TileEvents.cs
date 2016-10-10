@@ -2,15 +2,15 @@
 using System.Collections;
 
 public class TileEvents : MonoBehaviour {
-	SpriteRenderer renderer;
+	SpriteRenderer rnderer;
 	Color color;
 	public Color hoverColor = new Color(0.5f, 0.5f, 0.5f, 1f); 
 
 	// Use this for initialization
 	void Start () {
 		// get the renderer component and save the color
-		renderer  = GetComponent<SpriteRenderer>();
-		color = renderer.color;
+		rnderer  = GetComponent<SpriteRenderer>();
+		color = rnderer.color;
 	}
 	
 	// Update is called once per frame
@@ -28,12 +28,12 @@ public class TileEvents : MonoBehaviour {
 	void OnMouseEnter() {
 		//rend.material.color = Color.red;
 		//Debug.Log("Mouse enter");
-		renderer.color = hoverColor; 
+		rnderer.color = hoverColor; 
 	}
 
 	void OnMouseExit() {
 		//Debug.Log("Mouse Exit");
-		renderer.color = color;
+		rnderer.color = color;
 	}
 }
 	
